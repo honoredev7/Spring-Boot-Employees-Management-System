@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Employees Management System</title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <h1 class="navbar-brand">Employees Management System</h1>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:href="@{/employees}" class="nav-link">Employees Management</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Create New Employee</h1>
+
+                <div class="card-body">
+                    <form th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+                        <div class="form-group">
+                            <label>Employee First Name</label>
+                            <input type="text" name="firstName" th:field="*{firstName}" class="form-control" placeholder="Enter Employee FirstName" required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Employee Last Name</label>
+                            <input type="text" name="lastName" th:field="*{lastName}" class="form-control" placeholder="Enter Employee LastName" required="true">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Employee Email</label>
+                            <input type="email" name="email" th:field="*{email}" class="form-control" placeholder="Enter Employee Email" required="true">
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
